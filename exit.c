@@ -1,5 +1,13 @@
 #include "main.h"
 
+/**
+ * exitf - exits
+ * @str: a var
+ * @path: a var
+ *
+ * Description: it does smthing
+ */
+
 void exitf(char **str, char **path)
 {
 	int num;
@@ -14,7 +22,7 @@ void exitf(char **str, char **path)
 	if (num >= 0)
 	{
 		shfree(str);
-                shfree(path);
+		shfree(path);
 		exit(num);
 	}
 }
