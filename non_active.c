@@ -22,7 +22,10 @@ void non_inter(void)
 	{
 		argv = splice(lines[i]);
 		if (argv == NULL)
+		{
+			i++;
 			continue;
+		}
 		path_search(argv);
 		i++;
 	}
