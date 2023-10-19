@@ -110,13 +110,13 @@ char **splice(char *str)
 	i = word_cnt(str);
 	if (i == 0 || str[0] == '\n')
 		return (NULL);
-	vessel = malloc(sizeof(str) * i + 1);
+	vessel = malloc(sizeof(str) * (i + 1));
 	for (i = 0; str[i] != '\0' && str[i] != '\n'; i++)
 	{
 		if (str[i] != ' ')
 		{
 			j = word_len(&str[i]);
-			*(vessel + wn) = malloc(sizeof(char) * j + 1);
+			*(vessel + wn) = malloc(sizeof(char) * (j + 1));
 			for (j = 0; str[i] != '\0' && str[i] != ' '
 				&& str[i] != '\n'; j++)
 			{
