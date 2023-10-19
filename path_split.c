@@ -56,13 +56,13 @@ char **psplice(char *path)
 	char **vessel;
 
 	i = pword(path);
-	vessel = malloc(sizeof(path) * i + 1);
+	vessel = malloc(sizeof(path) * (i + 1));
 	for (i = 0; path[i] != '\0'; i++)
 	{
 		if (path[i] != ':')
 		{
 			j = plen(&path[i]);
-			*(vessel + wn) = malloc(sizeof(char) * j + 1);
+			*(vessel + wn) = malloc(sizeof(char) * (j + 1));
 			for (j = 0; path[i] != '\0'
 				&& path[i] != ':'; j++)
 			{
