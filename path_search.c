@@ -39,21 +39,23 @@ int execute(char *cmd, char **av)
 int path_search(char **str)
 {
 	struct stat st;
-	int i = 0;
-	int id;
+	int i = 0, id;
 	char **path = psplice(_getenv("PATH"));
 	char cmd[100];
 
 	if (str == NULL)
 		return (1);
-	if (stat(str[i], &st) == 0)
+	if (_strcmp(str[i], "env") == 0)
+		envprint();
+	else if (_strcmp(str[i], "exit") == 0)
+		exitf(str, path);
+	else if (stat(str[i], &st) == 0)
 	{
 		id = fork();
 		if (id == 0)
 			execve(str[i], str, environ);
 		wait(NULL);
-		shfree(path);
-		shfree(str);
+		shfree(path), shfree(str);
 		return (0);
 	}
 	else
@@ -65,15 +67,14 @@ int path_search(char **str)
 			_strcat(cmd, str[0]);
 			if (execute(cmd, str) == 0)
 			{
-				shfree(path);
-				shfree(str);
+				shfree(path), shfree(str);
 				return (0);
 			}
 			i++;
 		}
 	}
-	perror("./shell");
-	shfree(path);
-	shfree(str);
+	if (_strcmp(str[i], "env") != 0)
+		perror("./shell");
+	shfree(path), shfree(str);
 	return (1);
 }

@@ -15,5 +15,6 @@ void envprint(void)
 	{
 		len = _strlen(environ[i]);
 		write(1, environ[i], len);
+		write(1, "\n", 1);
 	}
 }

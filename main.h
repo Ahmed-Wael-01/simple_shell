@@ -28,6 +28,8 @@ char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
 void envprint(void);
 void shfree(char **str);
-
+int _strcmp(char *s1, char *s2);
+int _atoi(char *s);
+void exitf(char **str, char **path);
 
 #endif
