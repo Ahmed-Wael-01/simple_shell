@@ -32,13 +32,13 @@ char **line_breaker(char *str)
 	int i, j, ln = 0;
 
 	i = line_count(str);
-	vessel = malloc(sizeof(str) * i + 1);
+	vessel = malloc(sizeof(str) * (i + 1));
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] != '\n')
 		{
 			j = line_len(&str[i]);
-			*(vessel + ln) = malloc(sizeof(char) * j + 1);
+			*(vessel + ln) = malloc(sizeof(char) * (j + 1));
 			for (j = 0; str[i] != '\0' && str[i] != '\n'; j++)
 			{
 				*(*(vessel + ln) + j) = str[i];
