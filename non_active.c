@@ -7,12 +7,12 @@
 void non_inter(void)
 {
 	int bytes;
-	char buf[1024];
+	char buf[6144];
 	char **argv;
 	char **lines;
 	int i = 0;
 
-	bytes = read(STDIN_FILENO, buf, 1023);
+	bytes = read(STDIN_FILENO, buf, 6143);
 	if (bytes == 0)
 		return;
 	buf[bytes] = '\0';
