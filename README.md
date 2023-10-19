@@ -1,2 +1,2 @@
 # simple_shell
-a temporary repo
+a brand new
