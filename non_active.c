@@ -23,6 +23,8 @@ void non_inter(void)
 			continue;
 		if (_strcmp(argv[0], "exit") == 0)
 			exitf(argv, lines);
+		else if (_strcmp(argv[0], "env") == 0)
+			shfree(argv), envprint();
 		else
 			path_search(argv);
 	}

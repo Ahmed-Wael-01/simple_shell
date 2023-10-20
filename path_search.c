@@ -40,24 +40,23 @@ int path_search(char **str)
 {
 	struct stat st;
 	int i = 0, id;
-	char **path = psplice(_getenv("PATH"));
+	char **path;
 	char cmd[100];
 
 	if (str == NULL)
 		return (1);
-	if (_strcmp(str[i], "env") == 0)
-		envprint();
 	else if (stat(str[i], &st) == 0)
 	{
 		id = fork();
 		if (id == 0)
 			execve(str[i], str, environ);
 		wait(NULL);
-		shfree(path), shfree(str);
+		shfree(str);
 		return (0);
 	}
 	else
 	{
+		path = psplice(_getenv("PATH"));
 		while (path[i] != NULL)
 		{
 			_strcpy(cmd, path[i]);
@@ -71,8 +70,7 @@ int path_search(char **str)
 			i++;
 		}
 	}
-	if (_strcmp(str[i], "env") != 0)
-		perror("./shell");
+	perror("./hsh");
 	shfree(path), shfree(str);
 	return (1);
 }

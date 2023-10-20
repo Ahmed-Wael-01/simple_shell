@@ -55,6 +55,8 @@ char **psplice(char *path)
 	int i, j, wn = 0;
 	char **vessel;
 
+	if (path == NULL)
+		return (NULL);
 	i = pword(path);
 	vessel = malloc(sizeof(path) * (i + 1));
 	for (i = 0; path[i] != '\0'; i++)

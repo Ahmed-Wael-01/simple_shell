@@ -11,7 +11,7 @@ void envprint(void)
 	int i;
 	int len;
 
-	for (i = 0; environ[i] != NULL; i++)
+	for (i = 0; __environ[i] != NULL; i++)
 	{
 		len = _strlen(__environ[i]);
 		write(1, __environ[i], len);

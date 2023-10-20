@@ -31,7 +31,12 @@ int main(void)
 		argv = splice(buf);
 		if (argv == NULL)
 			continue;
-		path_search(argv);
+		if (_strcmp(argv[0], "exit") == 0)
+			exitf(argv, NULL);
+		else if (_strcmp(argv[0], "env") == 0)
+			shfree(argv), envprint();
+		else
+			path_search(argv);
 	}
 	return (0);
 }
