@@ -13,8 +13,8 @@ void envprint(void)
 
 	for (i = 0; environ[i] != NULL; i++)
 	{
-		len = _strlen(environ[i]);
-		write(1, environ[i], len);
+		len = _strlen(__environ[i]);
+		write(1, __environ[i], len);
 		write(1, "\n", 1);
 	}
 }
