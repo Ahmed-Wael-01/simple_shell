@@ -47,8 +47,6 @@ int path_search(char **str)
 		return (1);
 	if (_strcmp(str[i], "env") == 0)
 		envprint();
-	else if (_strcmp(str[i], "exit") == 0)
-		exitf(str, path);
 	else if (stat(str[i], &st) == 0)
 	{
 		id = fork();

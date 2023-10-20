@@ -6,11 +6,9 @@
  */
 void non_inter(void)
 {
-	int bytes;
 	char buf[6144];
-	char **argv;
-	char **lines;
-	int i = 0;
+	char **argv, **lines;
+	int i, bytes;
 
 	bytes = read(STDIN_FILENO, buf, 6143);
 	if (bytes == 0)
@@ -18,16 +16,15 @@ void non_inter(void)
 	buf[bytes] = '\0';
 	lines = line_breaker(buf);
 
-	while (lines[i] != NULL)
+	for (i = 0; lines[i] != NULL; i++)
 	{
 		argv = splice(lines[i]);
 		if (argv == NULL)
-		{
-			i++;
 			continue;
-		}
-		path_search(argv);
-		i++;
+		if (_strcmp(argv[0], "exit") == 0)
+			exitf(argv, lines);
+		else
+			path_search(argv);
 	}
 	shfree(lines);
 }

@@ -30,6 +30,6 @@ void envprint(void);
 void shfree(char **str);
 int _strcmp(char *s1, char *s2);
 int _atoi(char *s);
-void exitf(char **str, char **path);
+void exitf(char **str, char **lines);
 
 #endif
