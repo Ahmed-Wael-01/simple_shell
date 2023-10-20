@@ -16,7 +16,7 @@ void exitf(char **str, char **lines)
 	{
 		shfree(lines);
 		shfree(str);
-		exit(0);
+		exit(2);
 	}
 	num = _atoi(str[1]);
 	if (num >= 0)
