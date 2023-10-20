@@ -3,20 +3,22 @@
 /**
  * exitf - exits
  * @str: a var
- * @path: a var
+ * @lines: a var
  *
  * Description: it does smthing
  */
 
 void exitf(char **str, char **lines)
 {
-	int num;
+	int num = 0;
 
 	if (str[1] == NULL)
 	{
+		if (lines[1] != NULL)
+			num = 2;
 		shfree(lines);
 		shfree(str);
-		exit(2);
+		exit(num);
 	}
 	num = _atoi(str[1]);
 	if (num >= 0)
