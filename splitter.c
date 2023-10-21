@@ -65,11 +65,15 @@ int word_cnt(char *str)
 	int counter = 0;
 	int i = 0;
 
+	if (str[i] == '#')
+		return (0);
 	if (str[i] != ' ')
 		counter++;
 	i++;
 	while (str[i] != '\0' && str[i] != '\n')
 	{
+		if (str[i] == '#' && str[i - 1] == ' ')
+			return (counter);
 		if (str[i] != ' ' && str[i] != '\n' && str[i - 1] == ' ')
 			counter++;
 		i++;
@@ -87,7 +91,7 @@ int word_cnt(char *str)
 
 int word_len(char *str)
 {
-	 int len = 0;
+	int len = 0;
 
 	while (str[len] != '\0' && str[len] != ' ' && str[len] != '\n')
 		len++;
@@ -111,7 +115,8 @@ char **splice(char *str)
 	if (i == 0 || str[0] == '\n')
 		return (NULL);
 	vessel = malloc(sizeof(str) * (i + 1));
-	for (i = 0; str[i] != '\0' && str[i] != '\n'; i++)
+	for (i = 0; str[i] != '\0' && str[i] != '\n'
+			&& str[i] != '#'; i++)
 	{
 		if (str[i] != ' ')
 		{
