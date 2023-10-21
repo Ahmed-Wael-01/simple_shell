@@ -16,7 +16,11 @@ void file_mode(char *name)
 
 	fd = open(name, O_RDONLY);
 	if (fd == -1)
-		perror("./hsh"), exit(127);
+	{
+		write(2, "./hsh: 0: Can't open ", 22);
+		write(2, name, 40);
+		exit(127);
+	}
 	bytes = read(fd, buf, 6143);
 	close(fd);
 	if (bytes == 0)
