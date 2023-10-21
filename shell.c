@@ -2,17 +2,24 @@
 
 /**
  * main - gets env
+ * @ac: a var
+ * @av: a var
  *
  * Description: something
  * Return: 0
  */
 
-int main(void)
+int main(int ac, char **av)
 {
 	int bytes;
 	char buf[100];
 	char **argv;
 
+	if (ac == 2)
+	{
+		file_mode(av[1]);
+		return (0);
+	}
 	if (isatty(0) == 0)
 	{
 		non_inter();

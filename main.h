@@ -8,6 +8,7 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <fcntl.h>
 
 extern char **environ;
 
@@ -31,5 +32,6 @@ void shfree(char **str);
 int _strcmp(char *s1, char *s2);
 int _atoi(char *s);
 void exitf(char **str, char **lines);
+void file_mode(char *name);
 
 #endif
