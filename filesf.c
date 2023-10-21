@@ -19,6 +19,7 @@ void file_mode(char *name)
 	{
 		write(2, "./hsh: 0: Can't open ", 22);
 		write(2, name, 40);
+		write(2, "\n", 1):
 		exit(127);
 	}
 	bytes = read(fd, buf, 6143);
